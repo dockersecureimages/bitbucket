@@ -1,4 +1,4 @@
-FROM alpine:3.11.2
+FROM alpine:3.11.3
 LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
@@ -24,9 +24,6 @@ ENV BITBUCKET_HOME=/var/atlassian/application-data/bitbucket \
     DOCKERIZE_VERSION=0.6.1 \
     MYSQL_DRIVER_VERSION=5.1.48 \
     XMLSTARLET_VERSION=1.6.1-r1
-
-# Fixing CVE-2019-1551
-RUN apk add --no-cache --upgrade openssl
 
 RUN addgroup -g ${CONTAINER_GID} ${CONTAINER_GROUP};\
     adduser -u ${CONTAINER_UID} -G ${CONTAINER_GROUP} -h /home/${CONTAINER_USER} -s /bin/bash -S ${CONTAINER_USER} ;\
