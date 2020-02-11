@@ -40,6 +40,7 @@ docker pull atlassian/bitbucket-server:6.10.1
 
 Security scanning using Clair
 ```
+clair-scanner atlassian/bitbucket-server:6.10.1
 2020/02/11 10:43:12 [INFO] ▶ Start clair-scanner
 2020/02/11 10:43:27 [INFO] ▶ Server listening on port 9279
 2020/02/11 10:43:27 [INFO] ▶ Analyzing 0a83f61838ece143b24a4555f0b9ee1cd45e1a9f4af16a5b2f714868b4ae6546
