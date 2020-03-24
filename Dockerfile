@@ -1,9 +1,9 @@
-FROM alpine:3.11.3
+FROM alpine:3.11.5
 LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
 
-ARG BITBUCKET_VERSION=7.0.1
+ARG BITBUCKET_VERSION=7.1.0
 
 ARG CONTAINER_UID=2003
 ARG CONTAINER_GID=2003
