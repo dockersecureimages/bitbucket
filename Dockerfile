@@ -3,7 +3,7 @@ LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
 
-ARG BITBUCKET_VERSION=7.1.2
+ARG BITBUCKET_VERSION=7.2.0
 
 ARG CONTAINER_UID=2003
 ARG CONTAINER_GID=2003
