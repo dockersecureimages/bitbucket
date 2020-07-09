@@ -2,73 +2,73 @@
 
 Atlassian Bitbucket, image is based on the Alpine base image with 0 vulnerabilities.
 
-## Current Docker image (~667MB)
+## Current Docker image (~663MB)
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/bitbucket:7.3.1-alpine-3.12.0
-2020/06/19 21:39:23 [INFO] ▶ Start clair-scanner
-2020/06/19 21:39:30 [INFO] ▶ Server listening on port 9279
-2020/06/19 21:39:30 [INFO] ▶ Analyzing 76de98d374759ed05698adec9aa042db7bc0f62c25fb612c0f9be1419a581421
-2020/06/19 21:39:30 [INFO] ▶ Analyzing 0598844954e48056238bdc9bc2825a95c0d127f1623df89cd48e307ed44eebe6
-2020/06/19 21:39:31 [INFO] ▶ Analyzing 9eefb9c1e13b1a3741647c7061ee316e512adebd57707cf01884c55b63f6d959
-2020/06/19 21:39:31 [INFO] ▶ Analyzing b1deb8a6297457f826c41e790824d6fd787d83d03d8ed0464fa501eba60ad4a9
-2020/06/19 21:39:31 [INFO] ▶ Analyzing 686250b1a77584c78750636a2fa1462a2e296d8fb1a5b275b38e1d23654cd96e
-2020/06/19 21:39:31 [INFO] ▶ Analyzing 6b693b4e302cef5e254cb1c5004c0f10d41974683fddeb8f8803f0b1ec6fe6c8
-2020/06/19 21:39:31 [INFO] ▶ Image [secureimages/bitbucket:7.3.1-alpine-3.12.0] contains NO unapproved vulnerabilities
+clair-scanner secureimages/bitbucket:7.4.0-alpine-3.12.0
+2020/07/09 20:08:08 [INFO] ▶ Start clair-scanner
+2020/07/09 20:08:14 [INFO] ▶ Server listening on port 9279
+2020/07/09 20:08:14 [INFO] ▶ Analyzing 76de98d374759ed05698adec9aa042db7bc0f62c25fb612c0f9be1419a581421
+2020/07/09 20:08:14 [INFO] ▶ Analyzing f58864ab74a52d42677da7dd38377f16ba4a6cc40462cc752b6f84e1a070a923
+2020/07/09 20:08:16 [INFO] ▶ Analyzing 9b5cdd5ac4f650387e8839ce629f7102b0c9912cc2bb358ceccee9c84abf3a39
+2020/07/09 20:08:16 [INFO] ▶ Analyzing ae479148c03b0896a4076a9aa37c4ba2aedfaa49447c1843580cab3f5dede493
+2020/07/09 20:08:16 [INFO] ▶ Analyzing 70705910b660f591781f7ec9a23df8a5a12541cddad1c1d9b2e6822e4982cb2c
+2020/07/09 20:08:16 [INFO] ▶ Analyzing fe9c01467e7f3c23393891186b6d4f8f5f07a7f1c4629fa7401afe82b7ebbf69
+2020/07/09 20:08:16 [INFO] ▶ Image [secureimages/bitbucket:7.4.0-alpine-3.12.0] contains NO unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.9.1 --no-progress secureimages/bitbucket:7.3.1-alpine-3.12.0
-2020-06-19T18:39:34.464Z        INFO    Need to update DB
-2020-06-19T18:39:34.464Z        INFO    Downloading DB...
-2020-06-19T18:39:48.358Z        INFO    Detecting Alpine vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.9.1 --no-progress secureimages/bitbucket:7.4.0-alpine-3.12.0
+2020-07-09T17:08:18.185Z        INFO    Need to update DB
+2020-07-09T17:08:18.185Z        INFO    Downloading DB...
+2020-07-09T17:08:35.594Z        INFO    Detecting Alpine vulnerabilities...
 
-secureimages/bitbucket:7.3.1-alpine-3.12.0 (alpine 3.12.0)
+secureimages/bitbucket:7.4.0-alpine-3.12.0 (alpine 3.12.0)
 ==========================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
-## Official Docker image (~966MB)
+## Official Docker image (~980MB)
 
 [https://hub.docker.com/r/atlassian/bitbucket-server](https://hub.docker.com/r/atlassian/bitbucket-server)
 ```
-docker pull atlassian/bitbucket-server:7.3.1
+docker pull atlassian/bitbucket-server:7.4.0
 ```
 
 Security scanning using Clair
 ```
-clair-scanner atlassian/bitbucket-server:7.3.1
-2020/06/19 21:39:53 [INFO] ▶ Start clair-scanner
-2020/06/19 21:40:07 [INFO] ▶ Server listening on port 9279
-2020/06/19 21:40:07 [INFO] ▶ Analyzing 4046a0366bf3d63d6ebb165835dd7cd4a72c49d65942a66efb1b4a44bf5803b2
-2020/06/19 21:40:07 [INFO] ▶ Analyzing cb6f8e1a8e2c47f2e7eda433f9afb3ce6debe0131ba556f6ab516f1092b589be
-2020/06/19 21:40:07 [INFO] ▶ Analyzing f81f5853c77138f4f3bef3fe7a639070314c8b38f66f03f57055b5d9055c5c7a
-2020/06/19 21:40:07 [INFO] ▶ Analyzing 5171a8ddd9ca89e576ef04f932cfff352168ff2e06f856cc05d09b998989c8c5
-2020/06/19 21:40:07 [INFO] ▶ Analyzing 1f57d26728894cc8af89d0b20d65b58665f2a61b3c79a0bb15dac3f75a87857c
-2020/06/19 21:40:08 [INFO] ▶ Analyzing bbbb9e1c8917a5c71485f1bbb149f2b7a7194c890717c9160dc2aabe5d66e6d8
-2020/06/19 21:40:08 [INFO] ▶ Analyzing 6d3a68867326f09e3fd549aa31c51274006a10bee40ad5e7f4089662bd726ce2
-2020/06/19 21:40:08 [INFO] ▶ Analyzing c041eb682d107dda89e2aabc1d5e7d51e179fccf5a24e5b884a8d2ce01c5d4ae
-2020/06/19 21:40:08 [INFO] ▶ Analyzing 2fbc62ffd54949e842fa4cacceafa67ac412a107a9faf93a7d3402c84210c5ac
-2020/06/19 21:40:08 [INFO] ▶ Analyzing f83b848b22702050f34645cf45204ace60bfb74fc7d9df60be7cd5027a7fbc8f
-2020/06/19 21:40:09 [INFO] ▶ Analyzing 36fde25e8b8ca33a56f701ef3906ae1314f9cb5e97a6d70f4e1e025273b1f337
-2020/06/19 21:40:09 [INFO] ▶ Analyzing 8235e459d7a513fa5cc202a0bdb58529af0148a0edd835ea52ffd8c545419bb1
-2020/06/19 21:40:09 [INFO] ▶ Analyzing fd5ab3ee2ba115527f559ec4e635b6c27fc02252a8fecd779daac69e17088463
-2020/06/19 21:40:09 [INFO] ▶ Analyzing b28833c6aeec3f45a80aa8de542776765ce908cdf7733f518cb2835dbbfa3a22
-2020/06/19 21:40:09 [INFO] ▶ Analyzing ee3f20ae1aeea9232687b3641074fad287539387c3fdbe8500ae1c3187fdaef1
-2020/06/19 21:40:09 [WARN] ▶ Image [atlassian/bitbucket-server:7.3.1] contains 52 total vulnerabilities
-2020/06/19 21:40:09 [ERRO] ▶ Image [atlassian/bitbucket-server:7.3.1] contains 52 unapproved vulnerabilities
+clair-scanner atlassian/bitbucket-server:7.4.0
+2020/07/09 20:08:40 [INFO] ▶ Start clair-scanner
+2020/07/09 20:08:59 [INFO] ▶ Server listening on port 9279
+2020/07/09 20:08:59 [INFO] ▶ Analyzing eac38f7eb67b83a6e4970a491f1d74a27510b422968961d361d02823049def3f
+2020/07/09 20:09:00 [INFO] ▶ Analyzing f09d25849e9828314f5027b75bb398bb7f0ee87d6a84dc0fd49cfbf46de9f02b
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 3a1c37708124f6c3c1d1ff1965ed4e13e7ccba99747b9457c35a53db563a874a
+2020/07/09 20:09:00 [INFO] ▶ Analyzing bfb1707b3bd6ec47e80900687b5f5c015e9efeb82f234304ed74a8631bc2e75c
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 9ae61c13e50c4b87db90be46e5dee77f1b6f8ca6d724746364a7caa429e8c9d1
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 6899f2bb115ae38684042463c3aeae731a88d914cf32edac08bc34087869e35c
+2020/07/09 20:09:00 [INFO] ▶ Analyzing e99dec68512b6faa92b7c2f9e78d8fb6645ddd6554cbbdc853a9ff65f2cdeeac
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 626190b797113f2cb912bf64ccb54510b2b58e4d92558240c150fbf7a065f62b
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 5cdf7d325d730f5ebd0f1a48533432269ac06aa43ab29623bcecb2cf0c1b4ff2
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 87f8265a384cf20db8e52400e1ac47e6feb1980f6328d6661301d86892ad2c53
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 4e882e7596516857248acd7e28ab261a956cea45458c3ee28f1445775d1c405a
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 4448fe3b2ec0ab410f7ce704a8fc91d0737a2c0ed175450c794dd0322ec3fb92
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 49abb6b5414fc2f85a0346354d9fbc3d399dc32bd83a0f8503f91613f1cc5361
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 7b129979140a77ebee89f0975304596c13113759fea5d012c70e13ba20c093a2
+2020/07/09 20:09:00 [INFO] ▶ Analyzing 129d634753d7d8880100f70d15816d5e7422ab9928cc2d6ba2378efdf4b73ca2
+2020/07/09 20:09:00 [WARN] ▶ Image [atlassian/bitbucket-server:7.4.0] contains 42 total vulnerabilities
+2020/07/09 20:09:00 [ERRO] ▶ Image [atlassian/bitbucket-server:7.4.0] contains 42 unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.9.1 --no-progress atlassian/bitbucket-server:7.3.1
-2020-06-19T18:40:11.536Z        INFO    Need to update DB
-2020-06-19T18:40:11.536Z        INFO    Downloading DB...
-2020-06-19T18:40:33.388Z        INFO    Detecting Ubuntu vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.9.1 --no-progress atlassian/bitbucket-server:7.4.0
+2020-07-09T17:09:03.100Z        INFO    Need to update DB
+2020-07-09T17:09:03.100Z        INFO    Downloading DB...
+2020-07-09T17:09:28.623Z        INFO    Detecting Ubuntu vulnerabilities...
 
-atlassian/bitbucket-server:7.3.1 (ubuntu 18.04)
+atlassian/bitbucket-server:7.4.0 (ubuntu 18.04)
 ===============================================
-Total: 202 (UNKNOWN: 0, LOW: 140, MEDIUM: 62, HIGH: 0, CRITICAL: 0)
+Total: 152 (UNKNOWN: 0, LOW: 114, MEDIUM: 38, HIGH: 0, CRITICAL: 0)
 ```
