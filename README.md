@@ -2,73 +2,73 @@
 
 Atlassian Bitbucket, image is based on the Alpine base image with 0 vulnerabilities.
 
-## Current Docker image (~664MB)
+## Current Docker image (~706MB)
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/bitbucket:7.5.2-alpine-3.12.0
-2020/09/10 19:36:49 [INFO] ▶ Start clair-scanner
-2020/09/10 19:36:56 [INFO] ▶ Server listening on port 9279
-2020/09/10 19:36:56 [INFO] ▶ Analyzing 31609b718dd2bed92b93b1ab00c0ff67419a3121d0144bef0dc6ca49718820a7
-2020/09/10 19:36:56 [INFO] ▶ Analyzing 8ba64b261b70ed93433bb5126969d493a5da1aefeba41ae53ec9fd3eb14d29c8
-2020/09/10 19:36:56 [INFO] ▶ Analyzing 765eac1007450f3008504618f2fab52436ef00eabc79e2ae22f37c85a9ff6cb2
-2020/09/10 19:36:56 [INFO] ▶ Analyzing 51510dad191ff400831584f069da304b98fc09c63401af2da5e6ac8fc44311dd
-2020/09/10 19:36:56 [INFO] ▶ Analyzing 4444a334ae3389a31ffb7f45045924a9abf5aa2282a2a504d145d9667b5a8461
-2020/09/10 19:36:56 [INFO] ▶ Analyzing 6656a4602b4dc0c09f853756946dacf41cca9778e04b4955b778a2bc5f1c5812
-2020/09/10 19:36:56 [INFO] ▶ Image [secureimages/bitbucket:7.5.2-alpine-3.12.0] contains NO unapproved vulnerabilities
+clair-scanner secureimages/bitbucket:7.10.1-alpine-3.13.2
+2021/02/20 15:07:30 [INFO] ▶ Start clair-scanner
+2021/02/20 15:07:37 [INFO] ▶ Server listening on port 9279
+2021/02/20 15:07:37 [INFO] ▶ Analyzing b73bac2fe5a7b9d1abcbf0138798281e20b11e59b4605b104d38e914fa35b4d2
+2021/02/20 15:07:37 [INFO] ▶ Analyzing 6b59b42eece6e0d066fa1555f35c893a1775cf1e1372c22b4927a1c72e6a2711
+2021/02/20 15:07:38 [INFO] ▶ Analyzing 01afb1a0b5ca0f99d8cd4b26fb22a9eefc709670492e63284b6e3b0cecb13836
+2021/02/20 15:07:38 [INFO] ▶ Analyzing eb58ff5f734729aa493af6500a4ed6441db77c7e6c6bdefa51b9a13a2ac8a4e5
+2021/02/20 15:07:38 [INFO] ▶ Analyzing f547376aecf938d4089711243901e7695374ecc7ea01c21953f6d2aca3f5c3cf
+2021/02/20 15:07:38 [INFO] ▶ Analyzing 8b0e4a5bb5504ed60f51ba5db9155931e3262006699071e7b3bc9507c6b9a5dd
+2021/02/20 15:07:38 [WARN] ▶ Image [secureimages/bitbucket:7.10.1-alpine-3.13.2] contains 1 total vulnerabilities
+2021/02/20 15:07:38 [ERRO] ▶ Image [secureimages/bitbucket:7.10.1-alpine-3.13.2] contains 1 unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.11.0 --no-progress secureimages/bitbucket:7.5.2-alpine-3.12.0
-2020-09-10T19:36:58.006Z        INFO    Need to update DB
-2020-09-10T19:36:58.006Z        INFO    Downloading DB...
-2020-09-10T19:37:10.422Z        INFO    Detecting Alpine vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.16.0 --no-progress secureimages/bitbucket:7.10.1-alpine-3.13.2
+2021-02-20T15:07:40.445Z        INFO    Need to update DB
+2021-02-20T15:07:40.445Z        INFO    Downloading DB...
+2021-02-20T15:07:51.438Z        INFO    Detecting Alpine vulnerabilities...
+2021-02-20T15:07:51.445Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
 
-secureimages/bitbucket:7.5.2-alpine-3.12.0 (alpine 3.12.0)
-==========================================================
+secureimages/bitbucket:7.10.1-alpine-3.13.2 (alpine 3.13.2)
+===========================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
-## Official Docker image (~972MB)
+## Official Docker image (~1.03MB)
 
 [https://hub.docker.com/r/atlassian/bitbucket-server](https://hub.docker.com/r/atlassian/bitbucket-server)
 ```
-docker pull atlassian/bitbucket-server:7.5.2
+docker pull atlassian/bitbucket-server:7.10.1
 ```
 
 Security scanning using Clair
 ```
-clair-scanner atlassian/bitbucket-server:7.5.2
-2020/09/10 19:37:15 [INFO] ▶ Start clair-scanner
-2020/09/10 19:37:29 [INFO] ▶ Server listening on port 9279
-2020/09/10 19:37:29 [INFO] ▶ Analyzing c46312971b989857795a66c3a16a6c5ad3faf70f68a86374d05fc98271302d31
-2020/09/10 19:37:29 [INFO] ▶ Analyzing d5daf2b531bb4b815a1be1530978615e27bbc862258d1fd287df43a3b662181a
-2020/09/10 19:37:29 [INFO] ▶ Analyzing 989dbccc76e96e34b561b0eef7753f3134b58ab454b5b222a965ff87e25cf9fb
-2020/09/10 19:37:29 [INFO] ▶ Analyzing 16191067d3bf92aa3d59d244f8b1e91d2c656cbe68304eaade0f4a7d0204648c
-2020/09/10 19:37:29 [INFO] ▶ Analyzing aa8841fd4b53337dcecd11d73d685fbc46bb1d8b219ff6b114817cd8418ac853
-2020/09/10 19:37:29 [INFO] ▶ Analyzing 44f89f27c07f67d8e17cb7b1104d7c0fb79743713ea0ecc6c4cf29bb447c1cd1
-2020/09/10 19:37:29 [INFO] ▶ Analyzing f2cf48713419dc58a8847423dc61162283582d4e3d588fbb17f48969ab38ea9f
-2020/09/10 19:37:29 [INFO] ▶ Analyzing d0552a1d44c015057b7e89f28592c80e1e9c4c4b00a1adf040c1837453ef1ebe
-2020/09/10 19:37:30 [INFO] ▶ Analyzing e03d32a2249f7a656942ea4c6f8d1a780a9c1e40e40d9fd0cefc5f8988653f3d
-2020/09/10 19:37:30 [INFO] ▶ Analyzing e3d9b4666f3aa4936b328c6420988f0484d385c25cbae7ea83a3c7f6efa8d841
-2020/09/10 19:37:31 [INFO] ▶ Analyzing 9bd38fe4f06e5136eaa3d42dde7e9e25f40f147ebcf0a31c8246422a1f47f176
-2020/09/10 19:37:31 [INFO] ▶ Analyzing 5e30c901c911a30f2529eae0c2c851c3b498f22b5712f071b75a2a8e761c2873
-2020/09/10 19:37:31 [INFO] ▶ Analyzing a946ea0c89533c8c578f16ddccc68e74983f804da3ddd3ee8b102c55b17191ff
-2020/09/10 19:37:32 [INFO] ▶ Analyzing 82f05dbeca4f293206ab86bd9a0de42633e7fefff4364771da7dd8bf9d65746f
-2020/09/10 19:37:32 [INFO] ▶ Analyzing 7ad3c21beb2220d2438c769b96ceb1c1bd230148c30558b658791fd3001d7bd0
-2020/09/10 19:37:32 [WARN] ▶ Image [atlassian/bitbucket-server:7.5.2] contains 42 total vulnerabilities
-2020/09/10 19:37:32 [ERRO] ▶ Image [atlassian/bitbucket-server:7.5.2] contains 42 unapproved vulnerabilities
+clair-scanner atlassian/bitbucket-server:7.10.1
+2021/02/20 15:08:06 [INFO] ▶ Start clair-scanner
+2021/02/20 15:08:24 [INFO] ▶ Server listening on port 9279
+2021/02/20 15:08:24 [INFO] ▶ Analyzing 2aade13603488c2c20ed3b6d742867cc8ce6b6dfa6f2eaff27799f1b6596835d
+2021/02/20 15:08:24 [INFO] ▶ Analyzing cdec4b02a479c3dae4af73d15dfb2afff354cfeb3b9017f69d567920c629ee29
+2021/02/20 15:08:24 [INFO] ▶ Analyzing 138ea95583e2a6c484dbf3d9d6994c096efca7f9bd07176dccae887494b857bb
+2021/02/20 15:08:24 [INFO] ▶ Analyzing 0ace720e836226b7d7b373b74830ea0619df0388b8ab79fccc67744e1815d889
+2021/02/20 15:08:27 [INFO] ▶ Analyzing cb32b9d7caaec469480294f6edc7af54506969763a7da22c21cec6389fa6eb96
+2021/02/20 15:08:27 [INFO] ▶ Analyzing b382a63cfba2af9f586c39e20551408a3da278c893928a76e9d47b081b94a7c7
+2021/02/20 15:08:27 [INFO] ▶ Analyzing cdcda36d217175a6a99cfaab58881c5efedd92d7460df05d9c4f6f3d3aa1b07e
+2021/02/20 15:08:28 [INFO] ▶ Analyzing 9a54d69690b785ca86cfebe6c289ad2d56ade801bcc442b68d6b30b1a62b268f
+2021/02/20 15:08:28 [INFO] ▶ Analyzing f30eb8396e100969e1d1a513d24580fca99b5c728dd195a8dbc954c1d45d3a89
+2021/02/20 15:08:28 [INFO] ▶ Analyzing a6b14a06cbb2cceea9e179844248bbb5f0ab4b6c9deefe49f88799002752470f
+2021/02/20 15:08:28 [INFO] ▶ Analyzing 6a047827c7ecadd599fffb5a21ed7ae4524cc041032494d553d161bd7da9751d
+2021/02/20 15:08:28 [INFO] ▶ Analyzing 6f08e328d5b1865b485dc314ab9d3730c711fb2b3cc611adff14792c2161c626
+2021/02/20 15:08:28 [WARN] ▶ Image [atlassian/bitbucket-server:7.10.1] contains 29 total vulnerabilities
+2021/02/20 15:08:28 [ERRO] ▶ Image [atlassian/bitbucket-server:7.10.1] contains 29 unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.11.0 --no-progress atlassian/bitbucket-server:7.5.2
-2020-09-10T19:37:34.548Z        INFO    Need to update DB
-2020-09-10T19:37:34.549Z        INFO    Downloading DB...
-2020-09-10T19:37:54.748Z        INFO    Detecting Ubuntu vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.16.0 --no-progress atlassian/bitbucket-server:7.10.1
+2021-02-20T15:08:29.893Z        INFO    Need to update DB
+2021-02-20T15:08:29.893Z        INFO    Downloading DB...
+2021-02-20T15:08:49.407Z        INFO    Detecting Ubuntu vulnerabilities...
+2021-02-20T15:08:49.410Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
 
-atlassian/bitbucket-server:7.5.2 (ubuntu 18.04)
-===============================================
-Total: 137 (UNKNOWN: 0, LOW: 117, MEDIUM: 20, HIGH: 0, CRITICAL: 0)
+atlassian/bitbucket-server:7.10.1 (ubuntu 20.04)
+================================================
+Total: 93 (UNKNOWN: 0, LOW: 65, MEDIUM: 28, HIGH: 0, CRITICAL: 0)
 ```
